@@ -1,0 +1,102 @@
+### Get User by ID
+GET http://localhost:4000/user/6918cdd5af071dfe25b6af83
+
+### Create User
+POST http://localhost:4000/user
+Content-Type: application/json
+
+{
+  "name": "Alice Johnson",
+  "email": "alice@example.com",
+  "phone": "+1234567890",
+  "address": {
+    "street": "123 Main St",
+    "city": "San Francisco",
+    "zipCode": "94102",
+    "country": "USA"
+  },
+  "preferences": {
+    "newsletter": true,
+    "notifications": "email"
+  }
+}
+
+### Get User by Email
+GET http://localhost:4000/user/email/alice@example.com
+
+### Update User
+PUT http://localhost:4000/user/6918cbbf157eccb436a8c022
+Content-Type: application/json
+
+{
+  "name": "Alice Johnson Updated",
+  "phone": "+1987654321",
+  "address": {
+    "street": "456 Oak Ave",
+    "city": "Los Angeles",
+    "zipCode": "90001",
+    "country": "USA"
+  },
+  "preferences": {
+    "newsletter": false,
+    "notifications": "sms"
+  }
+}
+
+### Partial Update User (only name and email)
+PUT http://localhost:4000/user/6918cbbf157eccb436a8c022
+Content-Type: application/json
+
+{
+  "name": "Alice Smith",
+  "email": "alice.smith@example.com"
+}
+
+### Delete User
+DELETE http://localhost:4000/user/6918cdd5af071dfe25b6af83
+
+### Create Another User (Bob)
+POST http://localhost:4000/user
+Content-Type: application/json
+
+{
+  "name": "Bob Smith",
+  "email": "bob@example.com",
+  "phone": "+1555123456",
+  "address": {
+    "street": "789 Pine Rd",
+    "city": "Seattle",
+    "zipCode": "98101",
+    "country": "USA"
+  },
+  "preferences": {
+    "newsletter": true,
+    "notifications": "email"
+  }
+}
+
+### Create User (Charlie)
+POST http://localhost:4000/user
+Content-Type: application/json
+
+{
+  "name": "Charlie Brown",
+  "email": "charlie@example.com",
+  "phone": "+1555789012",
+  "address": {
+    "street": "321 Maple Dr",
+    "city": "Portland",
+    "zipCode": "97201",
+    "country": "USA"
+  },
+  "preferences": {
+    "newsletter": false,
+    "notifications": "none"
+  }
+}
+
+### Test Cache Hit (call same GET twice)
+GET http://localhost:4000/user/6918cbbf157eccb436a8c022
+
+### Get by Email (cache test)
+GET http://localhost:4000/user/bob@example.com
