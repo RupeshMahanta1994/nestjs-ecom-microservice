@@ -1,0 +1,30 @@
+### Create Order
+POST http://localhost:4001/orders
+Content-Type: application/json
+
+{
+    "userId": 2,
+    "productId":2,
+    "quantity": 4,
+    "price": 89.99
+}
+
+### Get All Orders
+GET http://localhost:4001/orders
+
+### Get Order by ID
+GET http://localhost:3001/orders/ORDER_ID_HERE
+
+### Get Orders by User
+GET http://localhost:4001/orders/user/2
+
+### Update Order Status
+PATCH http://localhost:4001/orders/ORDER_ID_HERE/status
+Content-Type: application/json
+
+{
+    "status": "completed"
+}
+
+### Delete Order
+DELETE http://localhost:3001/orders/ORDER_ID_HERE
